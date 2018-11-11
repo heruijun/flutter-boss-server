@@ -17,6 +17,7 @@
     "cross-env": "^5.2.0",
     "element-ui": "^2.4.6",
     "koa": "^2.5.2",
+    "mongoose": "^5.3.11",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
