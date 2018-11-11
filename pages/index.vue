@@ -25,8 +25,20 @@ export default {
     Logo
   },
   data() {
-    return { project : 'default' }
+    return {
+      title: '我的第一个 nuxt app',
+      project : 'default'
+    }
   },
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        { hid: '随便玩玩', name: '我的第一个nuxt程序', content: '随便玩玩啦' }
+      ]
+    }
+  },
+
   async asyncData(conext) {
     let result = await new Promise((resolve, reject) => {
       setTimeout(() => {
