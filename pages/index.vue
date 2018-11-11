@@ -3,20 +3,15 @@
     <div>
       <logo/>
       <h1 class="title">
-        flutter-movie-server
+        {{ project }}
       </h1>
-      <h2 class="subtitle">
-        My funkadelic Nuxt.js project
-      </h2>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
+        <nuxt-link
+          to="/about"
+          class="button--green">关于我们</nuxt-link>
+        <nuxt-link
+          to="/users"
+          class="button--green">用户</nuxt-link>
       </div>
     </div>
   </section>
@@ -28,6 +23,17 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  data() {
+    return { project : 'default' }
+  },
+  async asyncData(conext) {
+    let result = await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('nuxt')
+      }, 500)
+    })
+    return { project : result }
   }
 }
 </script>
