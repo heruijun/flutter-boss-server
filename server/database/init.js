@@ -3,6 +3,28 @@ const db = 'mongodb://localhost/flutter-moive'
 const glob = require('glob')
 const { resolve } = require('path')
 
+exports.initSchemas = () => {
+  glob.sync(resolve(__dirname, './schema', '**/*.js')).forEach(require)
+}
+
+exports.initAdmin = async () => {
+  const User = mongoose.model('User')
+  let user = await User.findOne({
+    username: 'flutter'
+  })
+
+  if (!user) {
+    const user = new User({
+      username: 'flutter',
+      email: '113805738@qq.com',
+      password: 'flutter',
+      role: 'admin'
+    })
+
+    await user.save()
+  }
+}
+
 exports.connect = () => {
   let maxConnectTimes = 0
 
