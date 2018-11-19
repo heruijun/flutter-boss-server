@@ -3,6 +3,7 @@ const Koa = require('koa')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 const { connect, initSchemas, initAdmin } = require('./database/init')
+const router = require('./routes')
 
 const app = new Koa()
 const host = process.env.HOST || '127.0.0.1'
@@ -25,6 +26,10 @@ async function start() {
   await connect()
   initSchemas()
   await initAdmin()
+
+  app
+    .use(router.routes())
+    .use(router.allowedMethods())
 
   app.use(ctx => {
     ctx.status = 200 // koa defaults to 404 when it sees that status is unset
