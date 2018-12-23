@@ -10,9 +10,15 @@ router.get('/movies/all', async (ctx, next) => {
 })
 
 router.get('/movies/detail/:id', async (ctx, next) => {
-  let movies = { 'detail' : 'hi' }
   ctx.body = {
-    movies
+    title : '我不是药神'
+  }
+})
+
+router.post('/user/login', async (ctx, next) => {
+  ctx.body = {
+    'username' : 'kimi',
+    'password' : '12344321'
   }
 })
 

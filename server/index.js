@@ -6,7 +6,7 @@ const { connect, initSchemas, initAdmin } = require('./database/init')
 const router = require('./routes')
 
 const app = new Koa()
-const host = process.env.HOST || '127.0.0.1'
+const host = process.env.HOST || '172.20.10.3'
 const port = process.env.PORT || 3000
 
 // Import and Set Nuxt.js options
