@@ -23,8 +23,8 @@ async function fetchJobList (page, curPage) {
 
     if (items.length >= 1) {
       items.each((index, item) => {
-        let id = index
         let it = $(item)
+        let id = it.find('.info-primary a').data('jid')
         let title = it.find('.job-title').text()    // 职位
         let salary = it.find('.red').text()         // 薪水
         let company = it.find('.company-text .name a').text()     // 公司名称
@@ -55,6 +55,8 @@ async function fetchJobList (page, curPage) {
 ;(async () => {
   console.log('正在访问页面')
 
+  let result = []
+
   const browser = await puppeteer.launch({
     args: ['--no-sandbox'],
     dumpio: false
@@ -62,12 +64,19 @@ async function fetchJobList (page, curPage) {
 
   const page = await browser.newPage()
 
-  for (let i = 1; i < 3; i++) {
+  await sleep(2000)
+  result = await fetchJobList(page, 1)
+
+  for (let i = 2; i <= 3; i++) {    // 抓3页
     await sleep(2000)
-    let result = await fetchJobList(page, i)
-    process.send({result})
+    let temp = await fetchJobList(page, i)
+    result = [...result, ...temp]
   }
 
+  process.send({result})
+
+  await sleep(5000)
+  
   browser.close()
   process.exit(0)
 })()
