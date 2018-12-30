@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const db = 'mongodb://localhost/flutter-moive'
+const db = 'mongodb://localhost/flutter-boss'
 const glob = require('glob')
 const { resolve } = require('path')
 

@@ -1,16 +1,21 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const ObjectId = Schema.Types.ObjectId
 
-const categorySchema = new Schema({
-  name: {
+const jobSchema = new Schema({
+  id: {
     unique: true,
     type: String
   },
-  movies: [{
-    type: ObjectId,
-    ref: 'Movie'
-  }],
+
+  title: String,
+  salary: String,
+  company: String,
+  info: String,
+  category: String,
+  head: String,
+  publish: String,
+  link: String,
+
   meta: {
     createdAt: {
       type: Date,
@@ -23,7 +28,7 @@ const categorySchema = new Schema({
   }
 })
 
-categorySchema.pre('save', function (next) {
+jobSchema.pre('save', function (next) {
   if (this.isNew) {
     this.meta.createdAt = this.meta.updatedAt = Date.now()
   } else {
@@ -33,4 +38,4 @@ categorySchema.pre('save', function (next) {
   next()
 })
 
-mongoose.model('Category', categorySchema)
+mongoose.model('Job', jobSchema)

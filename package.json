@@ -1,5 +1,5 @@
 {
-  "name": "flutter-movie-server",
+  "name": "flutter-boss-server",
   "version": "1.0.0",
   "description": "My funkadelic Nuxt.js project",
   "author": "heruijun",
@@ -20,7 +20,10 @@
     "koa": "^2.5.2",
     "koa-router": "^7.4.0",
     "mongoose": "^5.3.11",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "puppeteer": "^1.11.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
   },
   "devDependencies": {
     "nodemon": "^1.11.0",
