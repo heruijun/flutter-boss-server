@@ -53,7 +53,7 @@ async function fetchJobList (page, curPage) {
 }
 
 ;(async () => {
-  console.log('正在访问页面')
+  console.log('正在抓取职位列表页面')
 
   let result = []
 

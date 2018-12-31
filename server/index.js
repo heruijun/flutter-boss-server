@@ -28,6 +28,7 @@ async function start() {
   await initAdmin()
 
   require('./tasks/job-list-task')
+  require('./tasks/company-list-task')
 
   app
     .use(router.routes())
