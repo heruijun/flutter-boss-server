@@ -9,15 +9,12 @@ const app = new Koa()
 const host = process.env.HOST || '192.168.11.104'
 const port = process.env.PORT || 3000
 
-// Import and Set Nuxt.js options
 let config = require('../nuxt.config.js')
 config.dev = !(app.env === 'production')
 
 async function start() {
-  // Instantiate nuxt.js
   const nuxt = new Nuxt(config)
 
-  // Build in development
   if (config.dev) {
     const builder = new Builder(nuxt)
     await builder.build()
@@ -27,8 +24,9 @@ async function start() {
   initSchemas()
   await initAdmin()
 
-  require('./tasks/job-list-task')
-  require('./tasks/company-list-task')
+  // require('./tasks/job-list-task')
+  // require('./tasks/company-list-task')
+  // require('./tasks/company-detail-task')
 
   app
     .use(router.routes())

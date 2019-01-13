@@ -1,15 +1,14 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const companySchema = new Schema({
+const companyDetailSchema = new Schema({
   id: {
     unique: true,
     type: String
   },
-  company: String,
-  logo: String,
-  info: String,
-  hot: String,
+  inc: String,
+  companyImgsResult: [String],
+  tagsResult: [String],
 
   meta: {
     createdAt: {
@@ -23,7 +22,7 @@ const companySchema = new Schema({
   }
 })
 
-companySchema.pre('save', function (next) {
+companyDetailSchema.pre('save', function (next) {
   if (this.isNew) {
     this.meta.createdAt = this.meta.updatedAt = Date.now()
   } else {
@@ -33,4 +32,4 @@ companySchema.pre('save', function (next) {
   next()
 })
 
-mongoose.model('Company', companySchema)
+mongoose.model('CompanyDetail', companyDetailSchema)
