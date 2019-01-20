@@ -7,6 +7,7 @@ const router = require('./routes')
 
 const app = new Koa()
 const host = process.env.HOST || '192.168.11.104'
+// const host = process.env.HOST || '172.20.10.3'
 const port = process.env.PORT || 3000
 
 let config = require('../nuxt.config.js')

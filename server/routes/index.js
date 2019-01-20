@@ -76,4 +76,17 @@ router.get('/companyDetail/list/:page', async (ctx, next) => {
   }
 })
 
+router.get('/companyDetail/:id', async (ctx, next) => {
+  const id = ctx.params.id
+  console.log('id: ' + id)
+  const Company = mongoose.model('CompanyDetail')
+  const companyDetail = await Company.findOne({_id: id})
+
+  ctx.body = {
+    'data': {
+      companyDetail
+    }
+  }
+})
+
 module.exports = router
