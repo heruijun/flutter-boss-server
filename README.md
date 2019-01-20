@@ -15,8 +15,8 @@
 * 基于puppeteer + mongo + nodejs实现爬虫服务器，使用nuxt + koa2 + vue实现服务端渲染以及api服务接口。这里就不过多占用篇幅了，本文主要还是讲flutter，对前端感兴趣的会另外分享相关技术话题。
 
 ## 项目安装
-1. 安装 mongoDB，不会的请去http://www.runoob.com/mongodb/mongodb-tutorial.html看教程，很容易上手
-2. 安装nodejs，可以去https://nodejs.org/zh-cn/，推荐安装v8.12.0
+1. 安装 mongoDB，不会的请去http://www.runoob.com/mongodb/mongodb-tutorial.html
+2. 安装nodejs，可以去https://nodejs.org/zh-cn/
 3. 修改项目里的配置文件，server/index.js，找到下面这一行，把ip改成自己的
 ```
 const host = process.env.HOST || '192.168.11.104'
