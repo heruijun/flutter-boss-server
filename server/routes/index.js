@@ -2,6 +2,19 @@ const Router = require('koa-router')
 const mongoose = require('mongoose')
 const router = new Router()
 
+// 查询用户
+router.get('/user/:name', async (ctx, next) => {
+  const name = ctx.params.name
+  const userDB = mongoose.model('User')
+  const user = await userDB.findOne({username: name})
+
+  ctx.body = {
+    'data': {
+      user
+    }
+  }
+})
+
 // 职位列表
 router.get('/jobs/list/:page', async (ctx, next) => {
   const curPage = Number(ctx.params.page)

@@ -19,29 +19,16 @@
         <el-button>登 录</el-button>
       </el-form-item>
     </el-form>
-    <!-- <div class="links">
-      <nuxt-link
-        to="/about"
-        class="button--green">关于我们</nuxt-link>
-      <nuxt-link
-        to="/users"
-        class="button--green">用户</nuxt-link>
-    </div> -->
   </section>
 </template>
 
 <script>
-import axios from 'axios'
+import Logo from '~/components/Logo.vue'
 
 export default {
   components: {
-
+    Logo
   },
-
-  async asyncData({ query }) {
-    
-  },
-
   data() {
     return {
       title: '后端管理系统',
@@ -62,7 +49,7 @@ export default {
   async asyncData(conext) {
     let result = await new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve('后管系统')
+        resolve('nuxt')
       }, 500)
     })
     return { project : result }
@@ -71,6 +58,7 @@ export default {
 </script>
 
 <style>
+
 .container {
   min-height: 60vh;
   display: flex;
